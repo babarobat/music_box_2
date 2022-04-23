@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private float _dragSpeed = 1;
+    [SerializeField] private float _dragSpeed = 25;
     
     private InputSystem _input;
     private bool _isDragging;
@@ -33,9 +33,9 @@ public class CameraController : MonoBehaviour
     {
         _input = Services.Get<InputSystem>();
     }
+    
     private void Update()
     {
-
         if (_input.Touches.Length == 1 && !_input.IsTouchOverGameObject && _input.Touches[0].phase == TouchPhase.Began)
         {
             if (!_isDragging)

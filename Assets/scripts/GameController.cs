@@ -3,8 +3,11 @@ using UnityEngine;
 public class GameController : IService
 {
     public SoundSystem Sound { get; }
-    public GameController()
+    public Model Model { get; }
+    public GameController(Model model)
     {
+        Model = model;
+        
         Sound = new SoundSystem();
     }
 
