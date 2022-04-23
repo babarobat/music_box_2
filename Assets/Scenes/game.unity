@@ -153,8 +153,8 @@ Transform:
   - {fileID: 1262314604}
   - {fileID: 1927736642}
   - {fileID: 879315427}
-  - {fileID: 1053128616}
   - {fileID: 674769759}
+  - {fileID: 1053128616}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -165,17 +165,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 265109968}
     m_Modifications:
+    - target: {fileID: 4157563730964337498, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
+      propertyPath: _audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b186961a787224867bec256fe1862080, type: 3}
     - target: {fileID: 4157563730964337500, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_Name
       value: obstacle (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4157563730964337501, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4157563730964337501, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.22
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 4157563730964337501, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_LocalPosition.y
@@ -408,13 +412,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 265109968}
     m_Modifications:
+    - target: {fileID: 4157563730964337498, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
+      propertyPath: _audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c996747e5b6a9469fa5684bb8953687e, type: 3}
     - target: {fileID: 4157563730964337500, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_Name
       value: obstacle (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4157563730964337501, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4157563730964337501, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_LocalPosition.x
@@ -537,6 +545,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 265109968}
     m_Modifications:
+    - target: {fileID: 4157563730964337498, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
+      propertyPath: _audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7126d64718b4444d1bbe9da8f474afb7, type: 3}
     - target: {fileID: 4157563730964337500, guid: a1fdce888d0e846a393671565ddfbb76, type: 3}
       propertyPath: m_Name
       value: obstacle

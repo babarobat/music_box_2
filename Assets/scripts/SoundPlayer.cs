@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
 {
-    [SerializeField] private AudioClip _audioClip;
     [SerializeField] private AudioSource _audioSource;
 
     private GameController _controller;
@@ -17,13 +16,8 @@ public class SoundPlayer : MonoBehaviour
         _controller.Sound.OnPlaySound += OnPlaySound;
     }
 
-    private void OnPlaySound(SoundData data)
+    private void OnPlaySound(AudioClip data)
     {
-        _audioSource.PlayOneShot(_audioClip);
+        _audioSource.PlayOneShot(data);
     }
-}
-
-public class SoundData
-{
-    public AudioClip AudioClip;
 }

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class GameController : IService
 {
@@ -7,7 +8,7 @@ public class GameController : IService
         Sound = new SoundSystem();
     }
 
-    public void HandleCollide(SoundData data)
+    public void HandleCollide(AudioClip data)
     {
         Sound.HandlePlaySound(data);
     }
@@ -17,9 +18,9 @@ public class GameController : IService
 
 public class SoundSystem
 {
-    public event Action<SoundData> OnPlaySound;
+    public event Action<AudioClip> OnPlaySound;
 
-    public void HandlePlaySound(SoundData data)
+    public void HandlePlaySound(AudioClip data)
     {
         OnPlaySound?.Invoke(data);
     }
