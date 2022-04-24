@@ -1,26 +1,28 @@
-﻿using Windows;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace UserInterface
 {
     public class Hud : MonoBehaviour
     {
-        [SerializeField] private Button _soundPacksButton;
+        [SerializeField] private UIButton _obstaclesButton;
 
         private GameController _controller;
 
         private void Awake()
         {
-
             _controller = Services.Get<GameController>();
         
-            _soundPacksButton.onClick.AddListener(OnSoundPacksClick);
+            _obstaclesButton.OnClick += OnObstaclesButtonClick;
         }
         
-        private void OnSoundPacksClick()
+        private void OnObstaclesButtonClick()
         {
             _controller.OpenObstaclesWindow();
+        }
+
+        private void OnDestroy()
+        {
+            _obstaclesButton.OnClick -= OnObstaclesButtonClick;
         }
     }
 }

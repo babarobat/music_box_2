@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Models;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UserInterface;
 
 namespace Windows
 {
@@ -12,7 +11,7 @@ namespace Windows
         [SerializeField] private RectTransform _contentContainer;
         [SerializeField] private TextMeshProUGUI _title;
         [SerializeField] private ObstacleWindowElementView _prefab;
-        [SerializeField] private Button _closeButton;
+        [SerializeField] private UIButton _closeButton;
 
         private ObstaclesWindowViewModel _viewModel;
 
@@ -20,7 +19,7 @@ namespace Windows
 
         private void Awake()
         {
-            _closeButton.onClick.AddListener(OnCloseClick);
+            _closeButton.OnClick += OnCloseClick;
         }
 
         public void Bind(ObstaclesWindowViewModel viewModel)
@@ -61,7 +60,11 @@ namespace Windows
         private void CreateAndRegisterElement(ObstacleModel obstacleModel)
         {
             var obstacleWindowElementView = Instantiate(_prefab, _contentContainer);
-            obstacleWindowElementView.SetContext(new ObstacleWindowElementContext { Model = obstacleModel });
+            obstacleWindowElementView.SetContext(new ObstacleWindowElementContext
+            {
+                Model = obstacleModel, 
+                OnClick = _viewModel.HandleClick,
+            });
 
             _elements.Add(obstacleWindowElementView);
         }
@@ -74,6 +77,13 @@ namespace Windows
             }
 
             _elements.Clear();
+        }
+
+        private void OnDestroy()
+        {
+            _closeButton.OnClick -= OnCloseClick;
+            _viewModel.Title.OnChanged -= OnTitleChanged;
+            _viewModel.OnObstaclesChanged -= OnObstaclesChanged;
         }
     }
 }

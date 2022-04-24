@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Models;
+using UnityEngine;
 
 namespace Windows
 {
@@ -15,6 +16,10 @@ namespace Windows
         {
             Title = new ReactiveField<string>(data.Title);
             Obstacles = data.Obstacles;
+        }
+        public void HandleClick(ObstacleModel target)
+        {
+            Debug.Log($"[{GetType()}]: {target.Data.name} clicked");
         }
     }
 }
