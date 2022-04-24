@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d037bc73f8704bd28972c9d892440a4d, type: 3}
+  m_Script: {fileID: 11500000, guid: c95edb1607074a6f912cd20daf4a6f8a, type: 3}
   m_Name: bells_test
   m_EditorClassIdentifier: 
-  Name: Bells Test
+  Name: bells_test
   Icon: {fileID: 21300000, guid: 607d5b0b6079bed40b28c0b8908767cf, type: 3}
+  Visual:
+    Name: Bells Test
   C_1: {fileID: 8300000, guid: 7126d64718b4444d1bbe9da8f474afb7, type: 3}
   C_Sharp_1: {fileID: 8300000, guid: c65987575aaa445c78f0e640d803fde1, type: 3}
   D_1: {fileID: 8300000, guid: fd935193fc9314389ba195e3cccfd23a, type: 3}

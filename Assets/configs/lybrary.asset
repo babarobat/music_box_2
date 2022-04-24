@@ -16,3 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb8f59bcaf3f6f3439768b2053768f6a, type: 2}
   Windows:
     ObstaclesWindow: {fileID: 6726307920414089869, guid: 80b2be5e7d3f4f7459c061c2972e6a9e, type: 3}
+  Obstacles:
+  - {fileID: 11400000, guid: 77ccb62c82c325847b7768238fd0dcd2, type: 2}
+  - {fileID: 11400000, guid: 9cf557de5e7dbd847b1afbae018653cc, type: 2}
+  - {fileID: 11400000, guid: a7abcb5f1aeeac541b23b8edfbbd2956, type: 2}
