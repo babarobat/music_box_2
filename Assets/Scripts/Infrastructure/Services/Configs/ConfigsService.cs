@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Configs
 {
-    public class ConfigsService : IService
+    public class ConfigsService : IConfigsService
     {
         public IEnumerable<SoundPack> Packs { get; private set; }
         public IEnumerable<Obstacle> Obstacles { get; private set; }
@@ -14,7 +14,7 @@ namespace Infrastructure.Services.Configs
             Obstacles = LoadAll<Obstacle>("configs/obstacles");
         }
 
-        private IEnumerable<TConfig> LoadAll<TConfig>(string path) where TConfig : Object
+        public IEnumerable<TConfig> LoadAll<TConfig>(string path) where TConfig : Object
         {
             return Resources.LoadAll<TConfig>(path);
         }

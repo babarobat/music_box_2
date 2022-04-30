@@ -23,14 +23,13 @@ namespace Infrastructure.States
             
             var scenesService = new ScenesService(_coroutines);
             var configsService = new ConfigsService();
-            
-            AllServices.Register(new GameController(model));
-            AllServices.Register(new InputService(_loop));
-            AllServices.Register(scenesService);
-            AllServices.Register(configsService);
-            
             configsService.Init();
             
+            AllServices.Register(new GameController(model));
+            AllServices.Register<IInputService>(new InputService(_loop));
+            AllServices.Register<IScenesService>(scenesService);
+            AllServices.Register<IConfigsService>(configsService);
+
             model.ApplyChange(new ModelChange.SoundPacks { Packs = configsService.Packs });
             model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = configsService.Obstacles });
 

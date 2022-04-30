@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.Scenes
 {
-    public class ScenesService : IService
+    public class ScenesService : IScenesService
     {
         private readonly ICoroutinesRunner _coroutinesRunner;
         public ScenesService(ICoroutinesRunner coroutinesRunner)
@@ -26,7 +26,7 @@ namespace Infrastructure.Services.Scenes
 
         private static bool IsSceneLoaded(string name) => SceneManager.GetActiveScene().name == name;
 
-        private IEnumerator LoadInternal(string name, Action onLoad = null)
+        public IEnumerator LoadInternal(string name, Action onLoad = null)
         {
             var sceneLoadingHandle = SceneManager.LoadSceneAsync(name);
             yield return new WaitUntil(() => sceneLoadingHandle.isDone);

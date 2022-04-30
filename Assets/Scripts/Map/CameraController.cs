@@ -10,7 +10,7 @@ namespace Map
         [SerializeField] private Camera _camera;
         [SerializeField] private float _dragSpeed = 25;
     
-        private InputService _input;
+        private IInputService _input;
         private bool _isDragging;
         private Vector3 _cameraStartPos;
         private Vector3 _dragStartPos;

@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Services.Input
 {
-    public class InputService : IService
+    public class InputService : IInputService
     {
         public Touch[] Touches => _inputDetector.Touches;
         public bool IsTouchOverGameObject => _inputDetector.IsTouchOverGameObject;

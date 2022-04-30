@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Infrastructure.Services;
 using Models;
@@ -7,6 +8,7 @@ using UserInterface.Windows;
 
 namespace Infrastructure
 {
+    [Obsolete("should be deleted")]
     public class GameController : IService
     {
         public SoundSystem Sound { get; }
