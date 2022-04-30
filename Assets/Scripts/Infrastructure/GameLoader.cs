@@ -10,7 +10,7 @@ namespace Infrastructure
     public class GameLoader : MonoBehaviour
     {
         [SerializeField] private Lybrary _lybrary;
-    
+
         private InputSystem _inputSystem;
 
         private void Awake()
@@ -21,7 +21,7 @@ namespace Infrastructure
         private void Start()
         {
             UI.SetLibrary(_lybrary);
-        
+
             var model = new Model();
             model.ApplyChange(new ModelChange.SoundPacks { Packs = _lybrary.Packs });
             model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = _lybrary.Obstacles });
