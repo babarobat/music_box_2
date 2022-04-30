@@ -10,14 +10,16 @@ namespace Models
 
         public class ProjectsChange : ModelChange
         {
+            public class ProjectDTO
+            {
+                public List<(Obstacle Data, Vector3 Position, Vector3 Rotation)> Obstacles;
+                public string Name;
+            }
+            
             public IEnumerable<ProjectDTO> Projects;
             public override void Apply(IModelChangeReceiver receiver) => receiver.ApplyChange(this);
         }
     }
 
-    public class ProjectDTO
-    {
-        public List<(Obstacle Data, Vector3 Position, Vector3 Rotation)> Obstacles;
-        public string Name;
-    }
+
 }

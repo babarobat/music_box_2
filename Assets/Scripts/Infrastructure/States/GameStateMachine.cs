@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Infrastructure.Services.Scenes;
+using Infrastructure.Scenes;
 
 namespace Infrastructure.States
 {

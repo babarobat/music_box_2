@@ -15,7 +15,7 @@ namespace Models
             _projects = change.Projects.Select(CreateModel).ToList();
         }
 
-        private ProjectModel CreateModel(ProjectDTO dto)
+        private ProjectModel CreateModel(ModelChange.ProjectsChange.ProjectDTO dto)
         {
             return new ProjectModel
             {

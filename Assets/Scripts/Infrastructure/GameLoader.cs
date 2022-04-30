@@ -1,5 +1,5 @@
 using System;
-using Infrastructure.Services.Scenes;
+using Infrastructure.Scenes;
 using Infrastructure.States;
 using UnityEngine;
 

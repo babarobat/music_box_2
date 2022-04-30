@@ -34,9 +34,9 @@ namespace Infrastructure.States
 
             model.ApplyChange(new ModelChange.ProjectsChange
             {
-                Projects = new List<ProjectDTO>
+                Projects = new List<ModelChange.ProjectsChange.ProjectDTO>
                 {
-                    new ProjectDTO
+                    new ModelChange.ProjectsChange.ProjectDTO
                     {
                         Name = "New Project",
                         Obstacles = configsService.UserDefault.DefaultLevel.Obstacles.Select(x => (x.Data, x.Position, x.Rotation)).ToList()
