@@ -15,7 +15,6 @@ namespace Infrastructure
         public GameController(Model model)
         {
             Model = model;
-        
             Sound = new SoundSystem();
         }
 

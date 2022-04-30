@@ -1,8 +1,8 @@
+using System.Linq;
 using Configs;
 using Infrastructure.Services;
 using Infrastructure.Services.Input;
 using Models;
-using UnityEngine.SceneManagement;
 using UserInterface;
 
 namespace Infrastructure.States
@@ -23,12 +23,19 @@ namespace Infrastructure.States
             UI.SetLibrary(library);
 
             var model = new Model();
-            model.ApplyChange(new ModelChange.SoundPacks { Packs = library.Packs });
-            model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = library.Obstacles });
-
+            
+            var scenesService = new ScenesService(_coroutines);
+            var configsService = new ConfigsService();
+            
             AllServices.Register(new GameController(model));
             AllServices.Register(new InputService(_loop));
-            AllServices.Register(new ScenesService(_coroutines));
+            AllServices.Register(scenesService);
+            AllServices.Register(configsService);
+            
+            configsService.Init();
+            
+            model.ApplyChange(new ModelChange.SoundPacks { Packs = library.Packs });
+            model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = library.Obstacles });
 
             AllServices.Get<ScenesService>().Load("game");
         }
