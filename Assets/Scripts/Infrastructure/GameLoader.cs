@@ -1,17 +1,13 @@
+using System;
 using Configs;
 using Input;
-using Models;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UserInterface;
 
 namespace Infrastructure
 {
-    public class GameLoader : MonoBehaviour
+    public class GameLoader : MonoBehaviour, ILoop
     {
-        [SerializeField] private Lybrary _lybrary;
-
-        private InputSystem _inputSystem;
+        [SerializeField] private Library _library;
 
         private void Awake()
         {
@@ -20,23 +16,15 @@ namespace Infrastructure
 
         private void Start()
         {
-            UI.SetLibrary(_lybrary);
-
-            var model = new Model();
-            model.ApplyChange(new ModelChange.SoundPacks { Packs = _lybrary.Packs });
-            model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = _lybrary.Obstacles });
-
-            _inputSystem = new InputSystem();
-
-            Services.Register(new GameController(model));
-            Services.Register(_inputSystem);
-
-            SceneManager.LoadSceneAsync("game", LoadSceneMode.Additive);
+            var game = new Game(this);
+            game.State.Enter<BootstrapState, Library>(_library);
         }
+
+        public event Action<float> OnTick;
 
         private void Update()
         {
-            _inputSystem.Tick(Time.deltaTime);
+            OnTick?.Invoke(Time.deltaTime);
         }
     }
 }

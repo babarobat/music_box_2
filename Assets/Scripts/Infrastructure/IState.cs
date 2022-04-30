@@ -1,3 +1,5 @@
+using Configs;
+
 namespace Infrastructure
 {
     public interface IState : IStateBase

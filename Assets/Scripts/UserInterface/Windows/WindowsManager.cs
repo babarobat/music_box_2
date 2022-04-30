@@ -8,11 +8,11 @@ namespace Windows
     {
         private IWindow _opened;
         private Transform _root;
-        private Lybrary _library;
+        private Library _library;
 
         private readonly WindowBinder _binder = new WindowBinder();
 
-        public void SetLibrary(Lybrary library)
+        public void SetLibrary(Library library)
         {
             _library = library;
         }

@@ -8,7 +8,7 @@ namespace UserInterface
     {
         public static WindowsManager Windows { get; } = new WindowsManager();
 
-        public static void SetLibrary(Lybrary library)
+        public static void SetLibrary(Library library)
         {
             Windows.SetLibrary(library);
         }

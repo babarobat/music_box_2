@@ -1,12 +1,21 @@
 using System;
 using System.Collections.Generic;
+using Input;
 
 namespace Infrastructure
 {
     public class GameStateMachine
     {
-        private IStateBase _current;
         private Dictionary<Type, IStateBase> _states;
+        private IStateBase _current;
+
+        public GameStateMachine(ILoop loop)
+        {
+            _states = new Dictionary<Type, IStateBase>
+            {
+                [typeof(BootstrapState)] = new BootstrapState(loop),
+            };
+        }
 
         public void Enter<TState>() where TState : class, IState
         {

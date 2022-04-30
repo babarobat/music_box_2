@@ -3,18 +3,21 @@ using UnityEngine;
 
 namespace Input
 {
-    public class InputSystem : ITick, IService
+    public class InputService : IService
     {
         public Touch[] Touches => _inputDetector.Touches;
         public bool IsTouchOverGameObject => _inputDetector.IsTouchOverGameObject;
         public bool HasTouches => _inputDetector.Touches.Length > 0;
 
         private readonly IInputDetector _inputDetector;
+        private readonly ILoop _loop;
         private readonly ITick _tick;
 
-        public InputSystem()
+        public InputService(ILoop loop)
         {
-            if (UnityEngine.Application.isMobilePlatform)
+            _loop = loop;
+            
+            if (Application.isMobilePlatform)
             {
                 _inputDetector = new MobileInput();
             }
@@ -25,9 +28,11 @@ namespace Input
                 _tick = standAloneInput;
                 _inputDetector = standAloneInput;
             }
+
+            _loop.OnTick += OnTick;
         }
 
-        public void Tick(float deltaTime)
+        private void OnTick(float deltaTime)
         {
             _tick?.Tick(deltaTime);
         }

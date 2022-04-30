@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Configs
 {
     [CreateAssetMenu(menuName = "create library", fileName = "library")]
-    public class Lybrary : ScriptableObject
+    public class Library : ScriptableObject
     {
         public List<SoundPack> Packs;
         public Internal.Windows Windows;

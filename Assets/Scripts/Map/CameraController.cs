@@ -10,7 +10,7 @@ namespace Map
         [SerializeField] private Camera _camera;
         [SerializeField] private float _dragSpeed = 25;
     
-        private InputSystem _input;
+        private InputService _input;
         private bool _isDragging;
         private Vector3 _cameraStartPos;
         private Vector3 _dragStartPos;
@@ -35,7 +35,7 @@ namespace Map
 
         private void Awake()
         {
-            _input = Services.Get<InputSystem>();
+            _input = Services.Get<InputService>();
         }
     
         private void Update()
