@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Infrastructure.Services.Input;
+using Infrastructure.Services.Scenes;
 
 namespace Infrastructure.States
 {
@@ -9,11 +9,12 @@ namespace Infrastructure.States
         private readonly Dictionary<Type, IStateBase> _states;
         private IStateBase _current;
 
-        public GameStateMachine(ILoop loop, ICoroutinesRunner coroutines)
+        public GameStateMachine(ILoop loop, ICoroutinesRunner coroutines, SceneLoader sceneLoader)
         {
             _states = new Dictionary<Type, IStateBase>
             {
-                [typeof(BootstrapState)] = new BootstrapState(loop, coroutines),
+                [typeof(BootstrapState)] = new BootstrapState(this, loop, coroutines),
+                [typeof(LoadLevelState)] = new LoadLevelState(sceneLoader),
             };
         }
 

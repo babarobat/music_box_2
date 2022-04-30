@@ -1,5 +1,5 @@
 using System;
-using Infrastructure.Services.Input;
+using Infrastructure.Services.Scenes;
 using Infrastructure.States;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ namespace Infrastructure
 
         private void Start()
         {
-            var game = new Game(this, this);
+            var game = new Game(this, this, new SceneLoader(this));
             game.State.Enter<BootstrapState>();
         }
 

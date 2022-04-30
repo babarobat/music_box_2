@@ -1,4 +1,4 @@
-using Infrastructure.Services.Input;
+using Infrastructure.Services.Scenes;
 using Infrastructure.States;
 
 namespace Infrastructure
@@ -7,9 +7,9 @@ namespace Infrastructure
     {
         public GameStateMachine State { get; }
 
-        public Game(ILoop loop, ICoroutinesRunner coroutines)
+        public Game(ILoop loop, ICoroutinesRunner coroutines, SceneLoader sceneLoader)
         {
-            State = new GameStateMachine(loop, coroutines);
+            State = new GameStateMachine(loop, coroutines, sceneLoader);
         }
     }
 }

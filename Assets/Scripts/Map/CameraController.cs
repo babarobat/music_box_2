@@ -35,7 +35,7 @@ namespace Map
 
         private void Awake()
         {
-            _input = AllServices.Get<InputService>();
+            _input = AllServices.Get<IInputService>();
         }
     
         private void Update()
