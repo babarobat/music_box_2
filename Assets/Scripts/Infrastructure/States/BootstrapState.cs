@@ -34,8 +34,8 @@ namespace Infrastructure.States
             
             configsService.Init();
             
-            model.ApplyChange(new ModelChange.SoundPacks { Packs = library.Packs });
-            model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = library.Obstacles });
+            model.ApplyChange(new ModelChange.SoundPacks { Packs = configsService.Packs });
+            model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = configsService.Obstacles });
 
             AllServices.Get<ScenesService>().Load("game");
         }

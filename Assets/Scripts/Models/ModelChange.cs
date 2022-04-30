@@ -9,13 +9,13 @@ namespace Models
 
         public class SoundPacks : ModelChange
         {
-            public List<SoundPack> Packs;
+            public IEnumerable<SoundPack> Packs;
             public override void Apply(IModelChangeReceiver receiver) => receiver.ApplyChange(this);
         }
 
         public class ObstaclesChange : ModelChange
         {
-            public List<Obstacle> Obstacles;
+            public IEnumerable<Obstacle> Obstacles;
             public override void Apply(IModelChangeReceiver receiver) => receiver.ApplyChange(this);
         }
     }

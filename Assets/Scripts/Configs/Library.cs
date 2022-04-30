@@ -8,9 +8,7 @@ namespace Configs
     [CreateAssetMenu(menuName = "create library", fileName = "library")]
     public class Library : ScriptableObject
     {
-        public List<SoundPack> Packs;
         public Internal.Windows Windows;
-        public List<Obstacle> Obstacles;
 
         [Serializable]
         public class Internal
