@@ -1,7 +1,7 @@
 ﻿using System;
 using Models;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public struct ObstacleWindowElementContext
     {

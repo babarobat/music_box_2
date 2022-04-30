@@ -1,6 +1,4 @@
-using Configs;
-
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public interface IState : IStateBase
     {

@@ -4,7 +4,7 @@ using Models;
 using UnityEngine.SceneManagement;
 using UserInterface;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class BootstrapState : IPayloadState<Library>
     {

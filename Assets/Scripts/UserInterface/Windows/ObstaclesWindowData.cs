@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Models;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public class ObstaclesWindowData
     {

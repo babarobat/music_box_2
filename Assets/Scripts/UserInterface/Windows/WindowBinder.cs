@@ -1,4 +1,4 @@
-﻿namespace Windows
+﻿namespace UserInterface.Windows
 {
     public class WindowBinder 
     {

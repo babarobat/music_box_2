@@ -1,6 +1,6 @@
-﻿using Windows;
-using Configs;
+﻿using Configs;
 using UnityEngine;
+using UserInterface.Windows;
 
 namespace UserInterface
 {

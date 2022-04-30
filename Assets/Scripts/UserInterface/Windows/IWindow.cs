@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public interface IWindow
     {

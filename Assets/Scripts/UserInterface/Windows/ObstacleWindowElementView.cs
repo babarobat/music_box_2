@@ -3,9 +3,8 @@ using Configs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UserInterface;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public class ObstacleWindowElementView : MonoBehaviour
     {

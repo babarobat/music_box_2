@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Models;
 using UnityEngine;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public class ObstaclesWindowViewModel
     {

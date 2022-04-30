@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using UserInterface;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public abstract class WindowBase<TWindow,TWindowData> : MonoBehaviour, IWindow where TWindow : WindowBase<TWindow, TWindowData>
     {

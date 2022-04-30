@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Windows;
 using UnityEngine;
+using UserInterface.Windows;
 
 namespace Configs
 {

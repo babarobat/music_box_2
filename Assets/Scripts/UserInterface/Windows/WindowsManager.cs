@@ -2,7 +2,7 @@
 using Configs;
 using UnityEngine;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public class WindowsManager
     {

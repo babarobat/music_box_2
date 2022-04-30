@@ -2,9 +2,8 @@
 using Models;
 using TMPro;
 using UnityEngine;
-using UserInterface;
 
-namespace Windows
+namespace UserInterface.Windows
 {
     public class ObstaclesWindow : WindowBase<ObstaclesWindow, ObstaclesWindowData>
     {
