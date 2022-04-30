@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Configs;
-using Infrastructure.Services;
 using UnityEngine;
 
-namespace Infrastructure.States
+namespace Infrastructure.Services.Configs
 {
     public class ConfigsService : IService
     {

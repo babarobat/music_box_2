@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
-using Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.States
+namespace Infrastructure.Services.Scenes
 {
     public class ScenesService : IService
     {
