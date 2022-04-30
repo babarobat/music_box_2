@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Infrastructure
+namespace Infrastructure.Services
 {
-    public class Services
+    public class AllServices
     {
         private static readonly Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
         public static void Register<TService>(TService service) where TService: IService

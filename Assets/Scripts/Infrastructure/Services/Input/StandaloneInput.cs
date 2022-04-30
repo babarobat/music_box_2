@@ -1,9 +1,8 @@
 ﻿using System;
-using Infrastructure;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Input
+namespace Infrastructure.Services.Input
 {
     public class StandaloneInput : IInputDetector, ITick
     {

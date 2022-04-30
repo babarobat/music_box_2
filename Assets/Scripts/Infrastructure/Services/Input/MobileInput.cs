@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Input
+namespace Infrastructure.Services.Input
 {
     public class MobileInput : IInputDetector
     {

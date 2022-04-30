@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Input
+namespace Infrastructure.Services.Input
 {
     public interface IInputDetector 
     {

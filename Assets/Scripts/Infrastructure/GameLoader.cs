@@ -1,7 +1,7 @@
 using System;
 using Configs;
+using Infrastructure.Services.Input;
 using Infrastructure.States;
-using Input;
 using UnityEngine;
 
 namespace Infrastructure

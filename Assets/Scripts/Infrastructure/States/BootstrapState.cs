@@ -1,5 +1,6 @@
 using Configs;
-using Input;
+using Infrastructure.Services;
+using Infrastructure.Services.Input;
 using Models;
 using UnityEngine.SceneManagement;
 using UserInterface;
@@ -25,11 +26,11 @@ namespace Infrastructure.States
             model.ApplyChange(new ModelChange.SoundPacks { Packs = library.Packs });
             model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = library.Obstacles });
 
-            Services.Register(new GameController(model));
-            Services.Register(new InputService(_loop));
-            Services.Register(new ScenesService(_coroutines));
+            AllServices.Register(new GameController(model));
+            AllServices.Register(new InputService(_loop));
+            AllServices.Register(new ScenesService(_coroutines));
 
-            Services.Get<ScenesService>().Load("game");
+            AllServices.Get<ScenesService>().Load("game");
         }
 
         public void Exit()

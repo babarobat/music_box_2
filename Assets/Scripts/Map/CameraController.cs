@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Infrastructure;
-using Input;
+using Infrastructure.Services;
+using Infrastructure.Services.Input;
 using UnityEngine;
 
 namespace Map
@@ -35,7 +36,7 @@ namespace Map
 
         private void Awake()
         {
-            _input = Services.Get<InputService>();
+            _input = AllServices.Get<InputService>();
         }
     
         private void Update()

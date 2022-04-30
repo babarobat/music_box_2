@@ -1,5 +1,5 @@
+using Infrastructure.Services.Input;
 using Infrastructure.States;
-using Input;
 
 namespace Infrastructure
 {

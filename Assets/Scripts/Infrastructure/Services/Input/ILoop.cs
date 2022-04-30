@@ -1,6 +1,6 @@
 using System;
 
-namespace Input
+namespace Infrastructure.Services.Input
 {
     public interface ILoop
     {

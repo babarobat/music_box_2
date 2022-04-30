@@ -1,4 +1,5 @@
 using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 
 namespace Map
@@ -9,7 +10,7 @@ namespace Map
 
         public void Awake()
         {
-            _controller = Services.Get<GameController>();
+            _controller = AllServices.Get<GameController>();
         }
 
         private void OnCollisionEnter(Collision collision)

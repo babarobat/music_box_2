@@ -1,4 +1,5 @@
 ﻿using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 
 namespace UserInterface
@@ -11,7 +12,7 @@ namespace UserInterface
 
         private void Awake()
         {
-            _controller = Services.Get<GameController>();
+            _controller = AllServices.Get<GameController>();
         
             _obstaclesButton.OnClick += OnObstaclesButtonClick;
         }

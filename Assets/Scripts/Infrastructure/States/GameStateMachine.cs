@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Input;
+using Infrastructure.Services.Input;
 
 namespace Infrastructure.States
 {
     public class GameStateMachine
     {
-        private Dictionary<Type, IStateBase> _states;
+        private readonly Dictionary<Type, IStateBase> _states;
         private IStateBase _current;
 
         public GameStateMachine(ILoop loop, ICoroutinesRunner coroutines)
