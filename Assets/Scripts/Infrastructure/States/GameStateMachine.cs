@@ -9,11 +9,11 @@ namespace Infrastructure.States
         private Dictionary<Type, IStateBase> _states;
         private IStateBase _current;
 
-        public GameStateMachine(ILoop loop)
+        public GameStateMachine(ILoop loop, ICoroutinesRunner coroutines)
         {
             _states = new Dictionary<Type, IStateBase>
             {
-                [typeof(BootstrapState)] = new BootstrapState(loop),
+                [typeof(BootstrapState)] = new BootstrapState(loop, coroutines),
             };
         }
 

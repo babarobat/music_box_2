@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Infrastructure
 {
-    public class GameLoader : MonoBehaviour, ILoop
+    public class GameLoader : MonoBehaviour, ILoop, ICoroutinesRunner
     {
         [SerializeField] private Library _library;
 
@@ -17,7 +17,7 @@ namespace Infrastructure
 
         private void Start()
         {
-            var game = new Game(this);
+            var game = new Game(this, this);
             game.State.Enter<BootstrapState, Library>(_library);
         }
 
