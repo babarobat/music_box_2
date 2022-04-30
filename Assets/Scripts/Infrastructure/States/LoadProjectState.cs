@@ -1,4 +1,4 @@
-using Infrastructure.Services.Scenes;
+using Infrastructure.Scenes;
 using Models;
 using UnityEngine;
 
