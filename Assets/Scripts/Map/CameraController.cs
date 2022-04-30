@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.Input;
 using UnityEngine;

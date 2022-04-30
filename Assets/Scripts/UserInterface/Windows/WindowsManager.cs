@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using Configs;
-using UnityEngine;
+﻿using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace UserInterface.Windows
 {
@@ -8,15 +7,9 @@ namespace UserInterface.Windows
     {
         private IWindow _opened;
         private Transform _root;
-        private Library _library;
 
         private readonly WindowBinder _binder = new WindowBinder();
 
-        public void SetLibrary(Library library)
-        {
-            _library = library;
-        }
-    
         public void SetRoot( Transform root)
         {
             _root = root;
@@ -30,7 +23,7 @@ namespace UserInterface.Windows
                 return opened;
             }
 
-            var prefab = _library.Windows.All.First(x => x is TWindow) as TWindow;
+            var prefab = Resources.Load<TWindow>(WindowAssets.Map[typeof(TWindow)]);
             var window = Object.Instantiate(prefab, _root);
 
             _opened?.Close();

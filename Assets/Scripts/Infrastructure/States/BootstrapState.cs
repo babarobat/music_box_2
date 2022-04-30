@@ -1,13 +1,10 @@
-using System.Linq;
-using Configs;
 using Infrastructure.Services;
 using Infrastructure.Services.Input;
 using Models;
-using UserInterface;
 
 namespace Infrastructure.States
 {
-    public class BootstrapState : IPayloadState<Library>
+    public class BootstrapState : IState
     {
         private readonly ILoop _loop;
         private readonly ICoroutinesRunner _coroutines;
@@ -18,10 +15,8 @@ namespace Infrastructure.States
             _coroutines = coroutines;
         }
 
-        public void Enter(Library library)
+        public void Enter()
         {
-            UI.SetLibrary(library);
-
             var model = new Model();
             
             var scenesService = new ScenesService(_coroutines);

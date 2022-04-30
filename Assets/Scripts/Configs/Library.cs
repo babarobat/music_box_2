@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UserInterface.Windows;
 
 namespace Configs
 {
@@ -16,12 +14,8 @@ namespace Configs
             [Serializable]
             public class Windows
             {
-                public ObstaclesWindow ObstaclesWindow;
                 
-                public List<IWindow> All => new List<IWindow>
-                {
-                   ObstaclesWindow,
-                };
+
             }
         }
     }
