@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Infrastructure.Services;
 using Infrastructure.Services.Configs;
 using Infrastructure.Services.Input;
@@ -25,15 +27,24 @@ namespace Infrastructure.States
             var configsService = new ConfigsService();
             configsService.Init();
 
-            AllServices.Register(new GameController(model));
+            AllServices.Register(new GameController(configsService));
 
             AllServices.Register<IInputService>(new InputService(_loop));
             AllServices.Register<IConfigsService>(configsService);
 
-            model.ApplyChange(new ModelChange.SoundPacks { Packs = configsService.Packs });
-            model.ApplyChange(new ModelChange.ObstaclesChange { Obstacles = configsService.Obstacles });
+            model.ApplyChange(new ModelChange.ProjectsChange
+            {
+                Projects = new List<ProjectDTO>
+                {
+                    new ProjectDTO
+                    {
+                        Name = "New Project",
+                        Obstacles = configsService.UserDefault.DefaultLevel.Obstacles.Select(x => (x.Data, x.Position, x.Rotation)).ToList()
+                    }
+                }
+            });
 
-            _state.Enter<LoadLevelState>();
+            _state.Enter<LoadProjectState, ProjectModel>(model.User.Projects.First());
         }
 
         public void Exit()

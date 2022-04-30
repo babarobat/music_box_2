@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Configs;
+using UnityEngine;
 
 namespace Models
 {
@@ -7,16 +8,16 @@ namespace Models
     {
         public abstract void Apply(IModelChangeReceiver receiver);
 
-        public class SoundPacks : ModelChange
+        public class ProjectsChange : ModelChange
         {
-            public IEnumerable<SoundPack> Packs;
+            public IEnumerable<ProjectDTO> Projects;
             public override void Apply(IModelChangeReceiver receiver) => receiver.ApplyChange(this);
         }
+    }
 
-        public class ObstaclesChange : ModelChange
-        {
-            public IEnumerable<Obstacle> Obstacles;
-            public override void Apply(IModelChangeReceiver receiver) => receiver.ApplyChange(this);
-        }
+    public class ProjectDTO
+    {
+        public List<(Obstacle Data, Vector3 Position, Vector3 Rotation)> Obstacles;
+        public string Name;
     }
 }

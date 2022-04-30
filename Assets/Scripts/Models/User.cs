@@ -1,30 +1,50 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Configs;
+using UnityEngine;
 
 namespace Models
 {
     public class User
     {
-        public IEnumerable<SoundPackModel> Packs => _packs;
-        public IEnumerable<ObstacleModel> Obstacles => _obstacles;
-        
-        private List<SoundPackModel> _packs = new List<SoundPackModel>();
-        private List<ObstacleModel> _obstacles = new List<ObstacleModel>();
+        public IEnumerable<ProjectModel> Projects => _projects;
+        private List<ProjectModel> _projects = new List<ProjectModel>();
 
-        public void Update(ModelChange.ObstaclesChange change)
+        public void Update(ModelChange.ProjectsChange change)
         {
-            _packs.Clear();
-            _obstacles = change.Obstacles.Select(CreateModel).ToList();
-        }
-        
-        public void Update(ModelChange.SoundPacks change)
-        {
-            _obstacles.Clear();
-            _packs = change.Packs.Select(CreateModel).ToList();
+            _projects = change.Projects.Select(CreateModel).ToList();
         }
 
-        private SoundPackModel CreateModel(SoundPack data) => new SoundPackModel { Data = data };
-        private ObstacleModel CreateModel(Obstacle data) => new ObstacleModel { Data = data };
+        private ProjectModel CreateModel(ProjectDTO dto)
+        {
+            return new ProjectModel
+            {
+                Name = dto.Name,
+                Obstacles = dto.Obstacles.Select(CreateModel).ToList(),
+            };
+        }
+
+        private ObstacleMapModel CreateModel((Obstacle Data, Vector3 Position, Vector3 Rotation) arg)
+        {
+            return new ObstacleMapModel
+            {
+                Data = arg.Data,
+                Position = arg.Position,
+                Rotation = arg.Rotation,
+            };
+        }
+    }
+
+    public class ProjectModel
+    {
+        public string Name;
+        public List<ObstacleMapModel> Obstacles = new List<ObstacleMapModel>();
+    }
+
+    public class ObstacleMapModel
+    {
+        public Obstacle Data;
+        public Vector3 Position;
+        public Vector3 Rotation;
     }
 }

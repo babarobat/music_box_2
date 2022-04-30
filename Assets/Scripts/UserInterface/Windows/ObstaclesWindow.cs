@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Models;
+using Configs;
 using TMPro;
 using UnityEngine;
 
@@ -56,12 +56,12 @@ namespace UserInterface.Windows
             }
         }
 
-        private void CreateAndRegisterElement(ObstacleModel obstacleModel)
+        private void CreateAndRegisterElement(Obstacle data)
         {
             var obstacleWindowElementView = Instantiate(_prefab, _contentContainer);
             obstacleWindowElementView.SetContext(new ObstacleWindowElementContext
             {
-                Model = obstacleModel, 
+                Data = data, 
                 OnClick = _viewModel.HandleClick,
             });
 

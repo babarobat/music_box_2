@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Configs;
-using UnityEngine;
 
 namespace Infrastructure.Services.Configs
 {
@@ -9,6 +8,5 @@ namespace Infrastructure.Services.Configs
         IEnumerable<SoundPack> Packs { get; }
         IEnumerable<Obstacle> Obstacles { get; }
         void Init();
-        IEnumerable<TConfig> LoadAll<TConfig>(string path) where TConfig : Object;
     }
 }

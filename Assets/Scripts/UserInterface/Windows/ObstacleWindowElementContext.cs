@@ -1,12 +1,12 @@
 ﻿using System;
-using Models;
+using Configs;
 
 namespace UserInterface.Windows
 {
     public struct ObstacleWindowElementContext
     {
-        public ObstacleModel Model;
+        public Obstacle Data;
 
-        public Action<ObstacleModel> OnClick;
+        public Action<Obstacle> OnClick;
     }
 }

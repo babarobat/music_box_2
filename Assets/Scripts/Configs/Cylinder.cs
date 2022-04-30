@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(menuName = "create obstacle/cylinder", fileName = "cylinder")]
+    [CreateAssetMenu(menuName = "create config/obstacle/cylinder", fileName = "cylinder")]
     public class Cylinder : Obstacle
     {
         public Internal.Visual Visual;

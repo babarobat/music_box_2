@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Models;
+using Configs;
 
 namespace UserInterface.Windows
 {
     public class ObstaclesWindowData
     {
         public string Title;
-        public List<ObstacleModel> Obstacles;
+        public List<Obstacle> Obstacles;
     }
 }

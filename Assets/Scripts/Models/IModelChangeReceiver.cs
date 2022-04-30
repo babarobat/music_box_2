@@ -2,7 +2,6 @@
 {
     public interface IModelChangeReceiver
     {
-        void ApplyChange(ModelChange.SoundPacks change);
-        void ApplyChange(ModelChange.ObstaclesChange change);
+        void ApplyChange(ModelChange.ProjectsChange projects);
     }
 }

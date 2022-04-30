@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(menuName = "create library", fileName = "library")]
+    [CreateAssetMenu(menuName = "create config/library", fileName = "library")]
     public class Library : ScriptableObject
     {
         public Internal.Windows Windows;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(menuName = "create obstacle/cube", fileName = "cube")]
+    [CreateAssetMenu(menuName = "create config/obstacle/cube", fileName = "cube")]
     public class Cube : Obstacle
     {
         public Internal.Visual Visual;

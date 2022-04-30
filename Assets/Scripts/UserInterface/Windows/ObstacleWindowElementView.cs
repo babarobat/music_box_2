@@ -23,18 +23,18 @@ namespace UserInterface.Windows
         {
             _context = context;
             
-            switch (_context.Model.Data)
+            switch (_context.Data)
             {
-                case Cylinder cylinder: UpdateView(cylinder); break;
-                case Cube cylinder: UpdateView(cylinder); break;
-                case Spawner cylinder: UpdateView(cylinder); break;
+                case Cylinder obstacle: UpdateView(obstacle); break;
+                case Cube obstacle: UpdateView(obstacle); break;
+                case Spawner obstacle: UpdateView(obstacle); break;
                 default: throw new ArgumentOutOfRangeException();
             }
         }
         
         private void OnButtonClick()
         {
-            _context.OnClick?.Invoke(_context.Model);
+            _context.OnClick?.Invoke(_context.Data);
         }
 
         private void UpdateView(Cylinder data)

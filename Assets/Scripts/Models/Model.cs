@@ -3,14 +3,9 @@
     public class Model : IModelChangeReceiver
     {
         public User User = new User();
-    
-        public void ApplyChange(ModelChange.SoundPacks change)
+        public void ApplyChange(ModelChange.ProjectsChange projects)
         {
-            User.Update(change);
-        }
-        public void ApplyChange(ModelChange.ObstaclesChange change)
-        {
-            User.Update(change);
+            User.Update(projects);
         }
     }
 }

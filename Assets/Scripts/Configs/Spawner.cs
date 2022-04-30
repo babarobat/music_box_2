@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(menuName = "create obstacle/spawner", fileName = "spawner")]
+    [CreateAssetMenu(menuName = "create config/obstacle/spawner", fileName = "spawner")]
     public class Spawner : Obstacle
     {
         public Internal.Visual Visual;
