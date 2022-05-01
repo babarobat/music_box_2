@@ -7,9 +7,9 @@ namespace Infrastructure
     {
         public GameStateMachine State { get; }
 
-        public Game(ILoop loop, ICoroutinesRunner coroutines, SceneLoader sceneLoader)
+        public Game(ILoop loop, SceneLoader sceneLoader)
         {
-            State = new GameStateMachine(loop, coroutines, sceneLoader);
+            State = new GameStateMachine(loop, sceneLoader);
         }
     }
 }

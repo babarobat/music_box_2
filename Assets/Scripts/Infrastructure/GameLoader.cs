@@ -14,7 +14,7 @@ namespace Infrastructure
 
         private void Start()
         {
-            var game = new Game(this, this, new SceneLoader(this));
+            var game = new Game(this, new SceneLoader(this));
             game.State.Enter<BootstrapState>();
         }
 

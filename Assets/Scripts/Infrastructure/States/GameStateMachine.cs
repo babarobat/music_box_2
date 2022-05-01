@@ -9,7 +9,7 @@ namespace Infrastructure.States
         private readonly Dictionary<Type, IStateBase> _states;
         private IStateBase _current;
 
-        public GameStateMachine(ILoop loop, ICoroutinesRunner coroutines, SceneLoader sceneLoader)
+        public GameStateMachine(ILoop loop, SceneLoader sceneLoader)
         {
             _states = new Dictionary<Type, IStateBase>
             {
