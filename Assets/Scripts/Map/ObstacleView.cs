@@ -1,5 +1,6 @@
 using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.Locator;
 using UnityEngine;
 
 namespace Map
@@ -10,7 +11,7 @@ namespace Map
 
         public void Awake()
         {
-            _controller = AllServices.Get<GameController>();
+            _controller = ServiceLocator.Container.Get<GameController>();
         }
 
         private void OnCollisionEnter(Collision collision)

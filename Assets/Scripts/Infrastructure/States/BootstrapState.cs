@@ -1,48 +1,35 @@
-using System.Collections.Generic;
-using System.Linq;
 using Infrastructure.Services;
 using Infrastructure.Services.Configs;
 using Infrastructure.Services.Input;
+using Infrastructure.Services.Locator;
+using Infrastructure.Services.Model;
 using Models;
 
 namespace Infrastructure.States
 {
     public class BootstrapState : IState
     {
-        private readonly ILoop _loop;
         private readonly GameStateMachine _state;
+        private readonly ServiceLocator _services;
 
-        public BootstrapState(GameStateMachine state, ILoop loop)
+        public BootstrapState(GameStateMachine state, ILoop loop, ServiceLocator services)
         {
-            _loop = loop;
+            _services = services;
             _state = state;
+            
+            _services.Register<IModelService>(new ModelService(new Model()));
+            _services.Register<IInputService>(new InputService(loop));
+            _services.Register<IConfigsService>(new ConfigsService());
+            
+            _services.Register(new GameController(_services.Get<IConfigsService>()));
         }
 
         public void Enter()
         {
-            var model = new Model();
-
-            var configsService = new ConfigsService();
-            configsService.Init();
-
-            AllServices.Register(new GameController(configsService));
-
-            AllServices.Register<IInputService>(new InputService(_loop));
-            AllServices.Register<IConfigsService>(configsService);
-
-            model.ApplyChange(new ModelChange.ProjectsChange
-            {
-                Projects = new List<ModelChange.ProjectsChange.ProjectDTO>
-                {
-                    new ModelChange.ProjectsChange.ProjectDTO
-                    {
-                        Name = "New Project",
-                        Obstacles = configsService.UserDefault.DefaultLevel.Obstacles.Select(x => (x.Data, x.Position, x.Rotation)).ToList()
-                    }
-                }
-            });
-
-            _state.Enter<LoadProjectState, ProjectModel>(model.User.Projects.First());
+            _services.Get<IConfigsService>().Init();
+            _services.Get<IModelService>().Init();
+            
+            _state.Enter<InitState>();
         }
 
         public void Exit()

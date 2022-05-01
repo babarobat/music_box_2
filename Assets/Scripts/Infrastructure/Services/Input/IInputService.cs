@@ -1,3 +1,4 @@
+using Infrastructure.Services.Locator;
 using UnityEngine;
 
 namespace Infrastructure.Services.Input

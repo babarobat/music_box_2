@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Infrastructure.Scenes;
+using Infrastructure.Services;
+using Infrastructure.Services.Configs;
+using Infrastructure.Services.Locator;
+using Infrastructure.Services.Model;
 
 namespace Infrastructure.States
 {
@@ -9,11 +13,13 @@ namespace Infrastructure.States
         private readonly Dictionary<Type, IStateBase> _states;
         private IStateBase _current;
 
-        public GameStateMachine(ILoop loop, SceneLoader sceneLoader)
+        public GameStateMachine(ILoop loop, SceneLoader sceneLoader, ServiceLocator serviceLocator)
         {
             _states = new Dictionary<Type, IStateBase>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, loop),
+                [typeof(BootstrapState)] = new BootstrapState(this, loop, serviceLocator),
+                [typeof(InitState)] = new InitState(this,serviceLocator.Get<IModelService>(),
+                    serviceLocator.Get<IConfigsService>()),
                 [typeof(LoadProjectState)] = new LoadProjectState(sceneLoader),
             };
         }

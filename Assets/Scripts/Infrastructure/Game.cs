@@ -1,4 +1,6 @@
 using Infrastructure.Scenes;
+using Infrastructure.Services;
+using Infrastructure.Services.Locator;
 using Infrastructure.States;
 
 namespace Infrastructure
@@ -7,9 +9,9 @@ namespace Infrastructure
     {
         public GameStateMachine State { get; }
 
-        public Game(ILoop loop, SceneLoader sceneLoader)
+        public Game(ILoop loop, SceneLoader sceneLoader, ServiceLocator serviceLocator)
         {
-            State = new GameStateMachine(loop, sceneLoader);
+            State = new GameStateMachine(loop, sceneLoader, serviceLocator);
         }
     }
 }

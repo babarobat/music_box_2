@@ -1,5 +1,7 @@
 using System;
 using Infrastructure.Scenes;
+using Infrastructure.Services;
+using Infrastructure.Services.Locator;
 using Infrastructure.States;
 using UnityEngine;
 
@@ -14,7 +16,7 @@ namespace Infrastructure
 
         private void Start()
         {
-            var game = new Game(this, new SceneLoader(this));
+            var game = new Game(this, new SceneLoader(this), ServiceLocator.Container);
             game.State.Enter<BootstrapState>();
         }
 

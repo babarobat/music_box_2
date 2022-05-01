@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Configs;
+using Infrastructure.Services.Locator;
 
 namespace Infrastructure.Services.Configs
 {
@@ -7,6 +8,7 @@ namespace Infrastructure.Services.Configs
     {
         IEnumerable<SoundPack> Packs { get; }
         IEnumerable<Obstacle> Obstacles { get; }
+        User UserDefault { get; }
         void Init();
     }
 }

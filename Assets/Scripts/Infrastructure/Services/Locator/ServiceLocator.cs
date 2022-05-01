@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace Infrastructure.Services
+namespace Infrastructure.Services.Locator
 {
-    public class AllServices
+    public class ServiceLocator
     {
-        private static readonly Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
-        public static void Register<TService>(TService service) where TService: IService
+        public static ServiceLocator Container => _container ??= new ServiceLocator();
+        private static ServiceLocator _container;
+        
+        private readonly Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+        
+        public void Register<TService>(TService service) where TService: IService
         {
             var type = typeof(TService);
             if (_services.ContainsKey(type))
@@ -16,7 +20,8 @@ namespace Infrastructure.Services
 
             _services[type] = service;
         }
-        public static TService Get<TService>() where TService: IService
+        
+        public TService Get<TService>() where TService: IService
         {
             if (_services.TryGetValue(typeof(TService), out var result))
             {
@@ -24,6 +29,5 @@ namespace Infrastructure.Services
             }
             throw new Exception($"{typeof(TService)} is not registered");
         }
-    
     }
 }

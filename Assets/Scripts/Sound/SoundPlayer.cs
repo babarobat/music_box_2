@@ -1,5 +1,6 @@
 using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.Locator;
 using UnityEngine;
 
 namespace Sound
@@ -12,7 +13,7 @@ namespace Sound
 
         private void Awake()
         {
-            _controller = AllServices.Get<GameController>();
+            _controller = ServiceLocator.Container.Get<GameController>();
         }
 
         private void Start()
