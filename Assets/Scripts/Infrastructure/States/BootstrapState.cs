@@ -10,13 +10,11 @@ namespace Infrastructure.States
     public class BootstrapState : IState
     {
         private readonly ILoop _loop;
-        private readonly ICoroutinesRunner _coroutines;
-        private GameStateMachine _state;
+        private readonly GameStateMachine _state;
 
-        public BootstrapState(GameStateMachine state, ILoop loop, ICoroutinesRunner coroutines)
+        public BootstrapState(GameStateMachine state, ILoop loop)
         {
             _loop = loop;
-            _coroutines = coroutines;
             _state = state;
         }
 

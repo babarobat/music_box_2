@@ -13,7 +13,7 @@ namespace Infrastructure.States
         {
             _states = new Dictionary<Type, IStateBase>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, loop, coroutines),
+                [typeof(BootstrapState)] = new BootstrapState(this, loop),
                 [typeof(LoadProjectState)] = new LoadProjectState(sceneLoader),
             };
         }
