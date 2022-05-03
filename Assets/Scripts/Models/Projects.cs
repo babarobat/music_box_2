@@ -1,39 +1,26 @@
 using System.Collections.Generic;
 using System.Linq;
-using Configs;
-using UnityEngine;
+using Newtonsoft.Json;
 
 namespace Models
 {
-    public class Projects
+    [JsonObject(MemberSerialization.OptIn)]
+    public class Projects : IModel
     {
-        public IEnumerable<ProjectModel> All => _projects;
-        public bool IsEmpty => !_projects.Any();
+        [JsonProperty("projects")] public List<ProjectModel> All { get; private set; } = new List<ProjectModel>();
+        public bool IsEmpty => !All.Any();
 
-        private List<ProjectModel> _projects = new List<ProjectModel>();
-
-        public void Update(ModelChange.ProjectsChange change)
+        public ProjectModel Create(string name)
         {
-            _projects = change.Projects.Select(CreateModel).ToList();
-        }
-        
-        private ProjectModel CreateModel(ModelChange.ProjectsChange.ProjectDTO dto)
-        {
-            return new ProjectModel
+            var model = new ProjectModel
             {
-                Name = dto.Name,
-                Obstacles = dto.Obstacles.Select(CreateModel).ToList(),
+                Name = name,
             };
+            
+            All.Add(model);
+            return model;
         }
 
-        private ObstacleMapModel CreateModel((Obstacle Data, Vector3 Position, Vector3 Rotation) arg)
-        {
-            return new ObstacleMapModel
-            {
-                Data = arg.Data,
-                Position = arg.Position,
-                Rotation = arg.Rotation,
-            };
-        }
+        public void Apply(IModelVisitor visitor) => visitor.Apply(this);
     }
 }

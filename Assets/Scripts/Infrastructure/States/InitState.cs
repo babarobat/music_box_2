@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using System.Linq;
 using Infrastructure.Services.Configs;
-using Infrastructure.Services.Model;
+using Infrastructure.Services.Models;
 using Models;
 
 namespace Infrastructure.States
@@ -24,25 +23,17 @@ namespace Infrastructure.States
             if (_modelService.Model.User.Projects.IsEmpty)
             {
                 AddDefaultProject();
+                _modelService.Save();
             }
-
+            
             _state.Enter<LoadProjectState, ProjectModel>(_modelService.Model.User.Projects.All.First());
         }
         
         private void AddDefaultProject()
         {
-            _modelService.Model.ApplyChange(new ModelChange.ProjectsChange
-            {
-                Projects = new List<ModelChange.ProjectsChange.ProjectDTO>
-                {
-                    new ModelChange.ProjectsChange.ProjectDTO
-                    {
-                        Name = "New Project",
-                        Obstacles = _configsService.UserDefault.LevelDefault.Obstacles
-                            .Select(x => (x.Data, x.Position, x.Rotation)).ToList()
-                    }
-                }
-            });
+            var defaultLevel = _configsService.UserDefault.LevelDefault;
+            var projectModel = _modelService.Model.User.Projects.Create(defaultLevel.Visual.Name);
+            projectModel.AddObstacles(defaultLevel.Obstacles);
         }
 
         public void Exit()

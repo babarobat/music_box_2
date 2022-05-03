@@ -1,10 +1,12 @@
 using Infrastructure.Services.Locator;
+using Models;
 
-namespace Infrastructure.Services.Model
+namespace Infrastructure.Services.Models
 {
     public interface IModelService : IService
     {
-        Models.Model Model { get; }
+        Model Model { get; }
         void Init();
+        void Save();
     }
 }

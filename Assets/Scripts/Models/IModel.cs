@@ -1,7 +1,7 @@
 namespace Models
 {
-    public interface IModel : IModelChangeReceiver
+    public interface IModel
     {
-        
+        void Apply(IModelVisitor visitor);
     }
 }

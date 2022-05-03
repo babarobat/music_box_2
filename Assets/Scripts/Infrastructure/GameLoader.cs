@@ -1,6 +1,5 @@
 using System;
 using Infrastructure.Scenes;
-using Infrastructure.Services;
 using Infrastructure.Services.Locator;
 using Infrastructure.States;
 using UnityEngine;

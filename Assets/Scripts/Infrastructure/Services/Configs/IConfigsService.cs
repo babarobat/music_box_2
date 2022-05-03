@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Configs;
 using Infrastructure.Services.Locator;
+using User = Configs.User;
 
 namespace Infrastructure.Services.Configs
 {
@@ -10,5 +11,7 @@ namespace Infrastructure.Services.Configs
         IEnumerable<Obstacle> Obstacles { get; }
         User UserDefault { get; }
         void Init();
+        T Get<T>(string name)  where T: Config;
+        IEnumerable<T> GetAll<T>() where T : Config;
     }
 }

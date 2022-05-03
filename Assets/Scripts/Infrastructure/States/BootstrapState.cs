@@ -1,9 +1,7 @@
-using Infrastructure.Services;
 using Infrastructure.Services.Configs;
 using Infrastructure.Services.Input;
 using Infrastructure.Services.Locator;
-using Infrastructure.Services.Model;
-using Models;
+using Infrastructure.Services.Models;
 
 namespace Infrastructure.States
 {
@@ -16,11 +14,11 @@ namespace Infrastructure.States
         {
             _services = services;
             _state = state;
-            
-            _services.Register<IModelService>(new ModelService(new Model()));
+
             _services.Register<IInputService>(new InputService(loop));
             _services.Register<IConfigsService>(new ConfigsService());
-            
+            _services.Register<IModelService>(new ModelService());
+
             _services.Register(new GameController(_services.Get<IConfigsService>()));
         }
 
@@ -28,7 +26,7 @@ namespace Infrastructure.States
         {
             _services.Get<IConfigsService>().Init();
             _services.Get<IModelService>().Init();
-            
+
             _state.Enter<InitState>();
         }
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: user_default
   m_EditorClassIdentifier: 
   Name: default
-  DefaultLevel: {fileID: 11400000, guid: 56ae742dcaa284f5bb0913611a791937, type: 2}
+  LevelDefault: {fileID: 11400000, guid: 56ae742dcaa284f5bb0913611a791937, type: 2}

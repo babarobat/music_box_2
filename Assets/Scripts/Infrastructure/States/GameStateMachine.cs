@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Infrastructure.Scenes;
-using Infrastructure.Services;
 using Infrastructure.Services.Configs;
 using Infrastructure.Services.Locator;
-using Infrastructure.Services.Model;
+using Infrastructure.Services.Models;
 
 namespace Infrastructure.States
 {
@@ -20,7 +19,7 @@ namespace Infrastructure.States
                 [typeof(BootstrapState)] = new BootstrapState(this, loop, serviceLocator),
                 [typeof(InitState)] = new InitState(this,serviceLocator.Get<IModelService>(),
                     serviceLocator.Get<IConfigsService>()),
-                [typeof(LoadProjectState)] = new LoadProjectState(sceneLoader),
+                [typeof(LoadProjectState)] = new LoadProjectState(sceneLoader, serviceLocator.Get<IConfigsService>()),
             };
         }
 

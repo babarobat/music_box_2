@@ -1,12 +1,15 @@
-using Configs;
-using UnityEngine;
+using Newtonsoft.Json;
 
 namespace Models
 {
-    public class ObstacleMapModel
+    [JsonObject(MemberSerialization.OptIn)]
+    public class ObstacleMapModel : IModel
     {
-        public Obstacle Data;
-        public Vector3 Position;
-        public Vector3 Rotation;
+        [JsonProperty("data_name")] public string ObstacleName;
+        [JsonProperty("data_type")] public ObstacleType ObstacleType;
+        [JsonProperty("position")] public Vector3Data PositionData;
+        [JsonProperty("rotation")] public Vector3Data RotationData;
+        
+        public void Apply(IModelVisitor visitor) => visitor.Apply(this);
     }
 }

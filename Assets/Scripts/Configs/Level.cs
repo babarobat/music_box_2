@@ -11,6 +11,12 @@ namespace Configs
         public class Internal
         {
             [Serializable]
+            public class Visual
+            {
+                public string Name;
+            }
+            
+            [Serializable]
             public class Obstacle
             {
                 public Vector3 Position;
@@ -19,6 +25,7 @@ namespace Configs
             }
         }
 
+        public Internal.Visual Visual;
         public List<Internal.Obstacle> Obstacles = new List<Internal.Obstacle>();
     }
 }

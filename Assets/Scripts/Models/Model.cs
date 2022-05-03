@@ -1,11 +1,13 @@
-﻿namespace Models
+﻿using Newtonsoft.Json;
+
+namespace Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Model : IModel
     {
-        public readonly User User = new User();
-        public void ApplyChange(ModelChange.ProjectsChange projects)
-        {
-            User.Update(projects);
-        }
+        [JsonProperty("user")] public User User { get; set; } = new User();
+        
+        public void Apply(IModelVisitor visitor) => visitor.Apply(this);
+
     }
 }
