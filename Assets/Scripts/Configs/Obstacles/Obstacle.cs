@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Configs
+namespace Configs.Obstacles
 {
     public abstract class Obstacle : Config
     {

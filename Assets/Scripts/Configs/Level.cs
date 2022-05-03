@@ -21,7 +21,7 @@ namespace Configs
             {
                 public Vector3 Position;
                 public Vector3 Rotation;
-                public Configs.Obstacle Data;
+                public Obstacles.Obstacle Data;
             }
         }
 

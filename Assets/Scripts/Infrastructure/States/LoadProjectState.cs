@@ -1,23 +1,20 @@
-using System;
-using Configs;
-using Extensions;
 using Infrastructure.Scenes;
-using Infrastructure.Services.Configs;
+using Infrastructure.Services.Factories;
 using Models;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.States
 {
     public class LoadProjectState : IPayloadState<ProjectModel>
     {
         private readonly SceneLoader _sceneLoader;
-        private readonly IConfigsService _configs;
+        private readonly IFactoriesService _factory;
+
         private ProjectModel _project;
 
-        public LoadProjectState(SceneLoader sceneLoader, IConfigsService configsService)
+        public LoadProjectState(SceneLoader sceneLoader, IFactoriesService factory)
         {
-            _configs = configsService;
+            _factory = factory;
             _sceneLoader = sceneLoader;
         }
 
@@ -32,15 +29,7 @@ namespace Infrastructure.States
             var root = GameObject.Find("map_objects").transform;
             foreach (var model in _project.Obstacles)
             {
-                var quaternion = Quaternion.Euler(model.RotationData.X, model.RotationData.Y, model.RotationData.Z);
-                var prefab =  model.ObstacleType switch
-                {
-                    ObstacleType.Cube => _configs.Get<Cube>(model.ObstacleName).Prefab,
-                    ObstacleType.Cylinder => _configs.Get<Cylinder>(model.ObstacleName).Prefab,
-                    ObstacleType.Spawner => _configs.Get<Spawner>(model.ObstacleName).Prefab,
-                    _ => throw new ArgumentOutOfRangeException()
-                };
-                var obstacleView = Object.Instantiate(prefab, model.PositionData.ToVector3(), quaternion, root);
+                _factory.For<ObstaclesFactory>().CreateObstacle(model, root);
             }
         }
 

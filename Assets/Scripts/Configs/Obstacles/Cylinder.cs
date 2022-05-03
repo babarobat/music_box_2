@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Configs
+namespace Configs.Obstacles
 {
-    [CreateAssetMenu(menuName = "create config/obstacle/cube", fileName = "cube")]
-    public class Cube : Obstacle
+    [CreateAssetMenu(menuName = "create config/obstacle/cylinder", fileName = "cylinder")]
+    public class Cylinder : Obstacle
     {
         public Internal.Visual Visual;
         

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
+using Configs.Obstacles;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

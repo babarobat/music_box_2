@@ -1,4 +1,5 @@
 using Infrastructure.Services.Configs;
+using Infrastructure.Services.Factories;
 using Infrastructure.Services.Input;
 using Infrastructure.Services.Locator;
 using Infrastructure.Services.Models;
@@ -18,6 +19,7 @@ namespace Infrastructure.States
             _services.Register<IInputService>(new InputService(loop));
             _services.Register<IConfigsService>(new ConfigsService());
             _services.Register<IModelService>(new ModelService());
+            _services.Register<IFactoriesService>(new FactoriesService(_services.Get<IConfigsService>()));
 
             _services.Register(new GameController(_services.Get<IConfigsService>()));
         }

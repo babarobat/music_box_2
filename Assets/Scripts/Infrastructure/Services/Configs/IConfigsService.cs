@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Configs;
+using Configs.Obstacles;
 using Infrastructure.Services.Locator;
 using User = Configs.User;
 

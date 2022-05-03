@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Configs;
+using Configs.Obstacles;
 
 namespace UserInterface.Windows
 {
