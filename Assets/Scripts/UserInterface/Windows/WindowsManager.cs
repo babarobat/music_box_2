@@ -1,9 +1,11 @@
-﻿using Infrastructure.Services.Assets;
+﻿using System;
+using Infrastructure.Services.Assets;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace UserInterface.Windows
 {
+    [Obsolete("should be refactored. simplification needed")]
     public class WindowsManager
     {
         private IWindow _opened;
