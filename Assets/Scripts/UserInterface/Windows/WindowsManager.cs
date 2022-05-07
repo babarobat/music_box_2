@@ -1,4 +1,4 @@
-﻿using Infrastructure.Services.Configs;
+﻿using Infrastructure.Services.Assets;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

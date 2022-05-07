@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs;
 using Configs.Obstacles;
-using UnityEngine;
+using Infrastructure.Services.Assets;
 using Object = UnityEngine.Object;
 
 namespace Infrastructure.Services.Configs
@@ -15,6 +15,12 @@ namespace Infrastructure.Services.Configs
         public User UserDefault { get; private set; }
 
         private readonly Dictionary<Type, Dictionary<string, Config>> _all = new();
+        private readonly IAssetsService _assets;
+
+        public ConfigsService(IAssetsService assets)
+        {
+            _assets = assets;
+        }
 
         public void Init()
         {
@@ -50,12 +56,12 @@ namespace Infrastructure.Services.Configs
 
         private IEnumerable<TConfig> LoadAll<TConfig>(string path) where TConfig : Object
         {
-            return Resources.LoadAll<TConfig>(path);
+            return _assets.LoadAll<TConfig>(path);
         }
 
         private TConfig Load<TConfig>(string path) where TConfig : Object
         {
-            return Resources.Load<TConfig>(path);
+            return _assets.Load<TConfig>(path);
         }
     }
 }

@@ -1,8 +1,10 @@
+using Infrastructure.Services.Assets;
 using Infrastructure.Services.Configs;
 using Infrastructure.Services.Factories;
 using Infrastructure.Services.Input;
 using Infrastructure.Services.Locator;
 using Infrastructure.Services.Models;
+using UserInterface;
 
 namespace Infrastructure.States
 {
@@ -17,11 +19,14 @@ namespace Infrastructure.States
             _state = state;
 
             _services.Register<IInputService>(new InputService(loop));
-            _services.Register<IConfigsService>(new ConfigsService());
+            _services.Register<IAssetsService>(new AssetsService());
+            _services.Register<IConfigsService>(new ConfigsService(_services.Get<IAssetsService>()));
             _services.Register<IModelService>(new ModelService());
             _services.Register<IFactoriesService>(new FactoriesService(_services.Get<IConfigsService>()));
 
             _services.Register(new GameController(_services.Get<IConfigsService>()));
+            
+            UI.Windows.Connect(_services.Get<IAssetsService>());
         }
 
         public void Enter()
