@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Infrastructure.Services.Configs;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace UserInterface.Windows
@@ -9,10 +10,16 @@ namespace UserInterface.Windows
         private Transform _root;
 
         private readonly WindowBinder _binder = new();
+        private IAssetsService _assets;
 
         public void SetRoot( Transform root)
         {
             _root = root;
+        }
+
+        public void Connect(IAssetsService assets)
+        {
+            _assets = assets;
         }
         
         public TWindow Open<TWindow, TWindowData>(TWindowData data)
@@ -23,7 +30,7 @@ namespace UserInterface.Windows
                 return opened;
             }
 
-            var prefab = Resources.Load<TWindow>(WindowAssets.Map[typeof(TWindow)]);
+            var prefab = _assets.Load<TWindow>(WindowAssets.Map[typeof(TWindow)]);
             var window = Object.Instantiate(prefab, _root);
 
             _opened?.Close();

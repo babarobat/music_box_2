@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Configs;
 using Extensions;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Models
 {
