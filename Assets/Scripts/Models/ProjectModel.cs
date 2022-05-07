@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Configs;
 using Extensions;
-using Newtonsoft.Json;
+using Unity.Plastic.Newtonsoft.Json;
 
 namespace Models
 {
@@ -9,7 +9,7 @@ namespace Models
     public class ProjectModel : IModel
     {
         [JsonProperty("name")] public string Name;
-        [JsonProperty("map_obstacles")] public List<ObstacleMapModel> Obstacles = new List<ObstacleMapModel>();
+        [JsonProperty("map_obstacles")] public List<ObstacleMapModel> Obstacles = new();
 
         public void AddObstacles(List<Level.Internal.Obstacle> obstacles)
         {

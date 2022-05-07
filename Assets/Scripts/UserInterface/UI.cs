@@ -5,7 +5,7 @@ namespace UserInterface
 {
     public static class UI
     {
-        public static WindowsManager Windows { get; } = new WindowsManager();
+        public static WindowsManager Windows { get; } = new();
 
         public static void SetRoot(Transform root)
         {

@@ -8,7 +8,7 @@ namespace Infrastructure.Services.Locator
         public static ServiceLocator Container => _container ??= new ServiceLocator();
         private static ServiceLocator _container;
         
-        private readonly Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+        private readonly Dictionary<Type, IService> _services = new();
         
         public void Register<TService>(TService service) where TService: IService
         {

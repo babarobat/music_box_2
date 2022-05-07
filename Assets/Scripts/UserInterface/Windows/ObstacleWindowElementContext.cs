@@ -1,5 +1,4 @@
 ﻿using System;
-using Configs;
 using Configs.Obstacles;
 
 namespace UserInterface.Windows

@@ -1,5 +1,5 @@
 using Models;
-using Newtonsoft.Json;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
 namespace Infrastructure.Services.Models

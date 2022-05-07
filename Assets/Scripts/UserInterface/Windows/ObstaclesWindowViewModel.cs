@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Configs;
 using Configs.Obstacles;
 using UnityEngine;
 

@@ -26,6 +26,6 @@ namespace Configs
         }
 
         public Internal.Visual Visual;
-        public List<Internal.Obstacle> Obstacles = new List<Internal.Obstacle>();
+        public List<Internal.Obstacle> Obstacles = new();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Configs;
 using Configs.Obstacles;
 using TMPro;
 using UnityEngine;
@@ -15,7 +14,7 @@ namespace UserInterface.Windows
 
         private ObstaclesWindowViewModel _viewModel;
 
-        private readonly List<ObstacleWindowElementView> _elements = new List<ObstacleWindowElementView>();
+        private readonly List<ObstacleWindowElementView> _elements = new();
 
         private void Awake()
         {

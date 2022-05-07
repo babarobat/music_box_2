@@ -14,8 +14,7 @@ namespace Infrastructure.Services.Configs
         public IEnumerable<Obstacle> Obstacles { get; private set; }
         public User UserDefault { get; private set; }
 
-        private readonly Dictionary<Type, Dictionary<string, Config>> _all =
-            new Dictionary<Type, Dictionary<string, Config>>();
+        private readonly Dictionary<Type, Dictionary<string, Config>> _all = new();
 
         public void Init()
         {

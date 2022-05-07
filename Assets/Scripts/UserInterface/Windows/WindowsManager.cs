@@ -8,7 +8,7 @@ namespace UserInterface.Windows
         private IWindow _opened;
         private Transform _root;
 
-        private readonly WindowBinder _binder = new WindowBinder();
+        private readonly WindowBinder _binder = new();
 
         public void SetRoot( Transform root)
         {

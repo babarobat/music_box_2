@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
+using Unity.Plastic.Newtonsoft.Json;
 
 namespace Models
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class Projects : IModel
     {
-        [JsonProperty("projects")] public List<ProjectModel> All { get; private set; } = new List<ProjectModel>();
+        [JsonProperty("projects")] public List<ProjectModel> All { get; } = new();
         public bool IsEmpty => !All.Any();
 
         public ProjectModel Create(string name)
@@ -16,7 +16,7 @@ namespace Models
             {
                 Name = name,
             };
-            
+
             All.Add(model);
             return model;
         }
