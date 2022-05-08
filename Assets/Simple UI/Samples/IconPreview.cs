@@ -12,7 +12,7 @@ namespace Simple_UI.Samples
 		void Awake () {
 			for (int i = 0; i < icons.Length; i++) {
 				icon = new GameObject ("icon" + i);
-				icon.transform.SetParent(this.gameObject.transform);
+				icon.transform.SetParent(gameObject.transform);
 				icon.AddComponent<RectTransform> ();
 				icon.AddComponent<Image> ();
 				icon.GetComponent<Image> ().sprite = icons [i];

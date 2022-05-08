@@ -8,14 +8,14 @@ namespace Infrastructure.Services.Input
         public bool IsTouchOverGameObject => _inputDetector.IsTouchOverGameObject;
         public bool HasTouches => _inputDetector.Touches.Length > 0;
 
-        private readonly IInputDetector _inputDetector;
-        private readonly ILoop _loop;
-        private readonly ITick _tick;
+        private IInputDetector _inputDetector;
+        private ILoop _loop;
+        private ITick _tick;
 
-        public InputService(ILoop loop)
+        public void Connect(ILoop loop)
         {
             _loop = loop;
-            
+
             if (Application.isMobilePlatform)
             {
                 _inputDetector = new MobileInput();
@@ -23,7 +23,7 @@ namespace Infrastructure.Services.Input
             else
             {
                 var standAloneInput = new StandaloneInput();
-            
+
                 _tick = standAloneInput;
                 _inputDetector = standAloneInput;
             }

@@ -8,5 +8,6 @@ namespace Infrastructure.Services.Input
         Touch[] Touches { get; }
         bool IsTouchOverGameObject { get; }
         bool HasTouches { get; }
+        void Connect(ILoop loop);
     }
 }

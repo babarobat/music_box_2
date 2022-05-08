@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UserInterface
 {
-    public class Hud : MonoBehaviour
+    public class HudView : MonoBehaviour
     {
         [SerializeField] private UIButton _obstaclesButton;
 
@@ -12,9 +12,12 @@ namespace UserInterface
 
         private void Awake()
         {
-            _controller = ServiceLocator.Container.Get<GameController>();
-        
             _obstaclesButton.OnClick += OnObstaclesButtonClick;
+        }
+
+        public void Connect(GameController controller)
+        {
+            _controller = controller;
         }
         
         private void OnObstaclesButtonClick()

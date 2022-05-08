@@ -15,9 +15,9 @@ namespace Infrastructure.Services.Configs
         public User UserDefault { get; private set; }
 
         private readonly Dictionary<Type, Dictionary<string, Config>> _all = new();
-        private readonly IAssetsService _assets;
+        private IAssetsService _assets;
 
-        public ConfigsService(IAssetsService assets)
+        public void Connect(IAssetsService assets)
         {
             _assets = assets;
         }

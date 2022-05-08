@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using UserInterface.Windows;
 
-namespace UserInterface.Windows
+namespace Infrastructure.Services.UI.Windows
 {
     public static class WindowAssets
     {
@@ -11,7 +12,7 @@ namespace UserInterface.Windows
         {
             Map = new Dictionary<Type, string>
             {
-                [typeof(ObstaclesWindow)] = AssetsPaths.ObstaclesWindow
+                [typeof(ObstaclesWindow)] = WindowAssetsPaths.ObstaclesWindow
             };
         }
     }
