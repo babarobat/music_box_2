@@ -6,12 +6,10 @@ using Infrastructure.Services.UI;
 using Infrastructure.Services.UI.Windows;
 using Sound;
 using UnityEngine;
-using UserInterface;
 using UserInterface.Windows;
 
 namespace Infrastructure
 {
-    [Obsolete("should be deleted")]
     public class GameController : IService
     {
         private IConfigsService _configs;

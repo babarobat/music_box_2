@@ -26,7 +26,7 @@ namespace Infrastructure.States
             _services.Register<IModelService>(new ModelService());
             _services.Register<IFactoriesService>(new FactoriesService());
             _services.Register<IUIService>(new UIService());
-            
+
             _services.Register(new GameController());
         }
 

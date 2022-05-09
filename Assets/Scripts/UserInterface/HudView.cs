@@ -1,5 +1,4 @@
 ﻿using Infrastructure;
-using Infrastructure.Services.Locator;
 using UnityEngine;
 
 namespace UserInterface
